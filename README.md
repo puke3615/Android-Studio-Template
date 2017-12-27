@@ -1,5 +1,15 @@
 # Android-Studio-Template
-> *Android Studio模板集合*
+> *Android Studio模板集合，收集了比较常用的模板，直接拿去用*
+>
+> Gif效果：[LiveTemplate](https://puke3615.github.io/2016/10/14/Android-Studio-Template-For-Part/)、[FileTemplate](https://puke3615.github.io/2016/10/15/Android-Studio-Template-For-File/)
+
+
+
+## 效果展示
+
+![](images/live_template1.png)
+
+![](images/live_template.png)
 
 
 
@@ -449,11 +459,3 @@ public class Manager {
 
 }
 ```
-
-
-
-### Intent相关
-
-生成Intent一系列的代码片段
-
-![](images/live_template.png)
