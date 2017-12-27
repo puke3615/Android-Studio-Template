@@ -1,0 +1,40 @@
+public ##
+#if($field.modifierStatic)
+  static ##
+#end
+$field.type ##
+#set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))
+#if ($field.boolean && $field.primitive)
+  #if ($StringUtil.startsWithIgnoreCase($name, 'is'))
+    #set($name = $StringUtil.decapitalize($name))
+  #else
+    is##
+#end
+#else
+  get##
+#end
+${name}() {
+  #if($field.string)
+    if ($field.name == null) {
+        $field.name = "";
+    }
+  #elseif($field.map)
+    if ($field.name == null) {
+        $field.name = new java.util.HashMap<>();
+    }
+  #elseif($field.set)
+    if ($field.name == null) {
+        $field.name = new java.util.HashSet<>();
+    }
+  #elseif($field.list)
+    if ($field.name == null) {
+        $field.name = new java.util.ArrayList<>();
+    }
+  #elseif($field.object)
+      if ($field.name == null) {
+          $field.name = new ${field.typeQualifiedName}();
+      }
+  #else
+  #end
+  return $field.name;
+}
